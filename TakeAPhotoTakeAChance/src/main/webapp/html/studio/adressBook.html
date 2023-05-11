@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .input{
+            display: inline-block;
+        }
+        table{
+            border: 2px solid rgb(94, 94, 94);
+            width: 500px;
+            margin: 5px;
+            text-align: center;
+        }
+    </style>
+    <title>lab11</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Address Book</h1>
+    </header>
+    <div class="container">
+        <div class="input">
+            <input type="text" placeholder="請輸入姓名"
+            id="name">
+        </div>
+        <div class="input">
+            <input type="text" placeholder="請輸入電話"
+            id="phone">
+        </div>
+        <div class="input">
+            <input type="text" placeholder="請輸入地址"
+            id="address">
+        </div>
+        <div class="input">
+            <button id="add"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Adress</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://kit.fontawesome.com/a260a05f7c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <!-- <script src="../all.js"></script> -->
+    <script>
+        $(function () {
+            $('#add').on('click',function(){
+                let name =$('#name').val();
+                let phone =$('#phone').val();
+                let address =$('#address').val();
+                let content = `<tr>
+                    <td>${name}</td>
+                    <td>${phone}</td>
+                    <td>${address}</td>
+                    <td><button class="del"><i class="fa-solid fa-user-xmark"></i></button></td>
+                    </tr>`;
+                    $('tbody').append(content);
+                })
+                
+                $('tbody').on('click','.del',function(){
+                    $(this).closest('tr').remove();               
+                })
+        })
+    </script>
+</body>
+
+</html>

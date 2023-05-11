@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PhotoServiceID Manager</title>
+</head>
+<body>
+
+	<div align="center">
+		
+		<h2>查詢攝影服務</h2>
+		<form method="post" action="/TakeAPhotoTakeAChance/ReadPhotoServiceServlet">
+			請輸入攝影服務ID : <input type="text" name="serviceID"/><br>
+			<input type="submit" value="查詢單筆資料" />
+		</form>
+		<form method="post" action="/TakeAPhotoTakeAChance/ReadAllPhotoServiceServlet">
+			<input type="submit" value="列出所有資料" />
+		</form>
+
+
+		<h2>手動新增攝影服務</h2>
+		<form method="post" action="/TakeAPhotoTakeAChance/CreatePhotoServiceServlet">
+			請輸入攝影服務ID : <input type="text" name="serviceID" /><br>
+			請輸入攝影服務名稱 : <input type="text" name="serviceName" /><br>
+			請輸入攝影服務類型 : <input type="text" name="serviceType" /><br>
+			請輸入攝影服務價格 : <input type="text" name="servicePrice" /><br>
+			請輸入攝影服務時長 : <input type="text" name="serviceDuration" /><br>
+			請輸入攝影服務地點 : <input type="text" name="serviceLocation" /><br>
+			請輸入攝影服務創建者 : <input type="text" name="serviceCreator" /><br><br>
+			<input type="submit" value="新增"/>
+		</form>
+
+		<h2>刪除攝影服務</h2>
+		<form method="post" action="/TakeAPhotoTakeAChance/DeletePhotoServiceServlet">
+			請輸入預刪除的攝影服務ID : <input type="text" name="serviceID" placeholder="系統將先查詢該筆資料"/><br>
+			<input type="submit" value="查詢ID"/>
+		</form>
+
+	</div>
+</body>
+</html>

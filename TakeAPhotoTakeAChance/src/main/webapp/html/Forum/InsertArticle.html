@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert Article data</title>
+<style>
+body {
+	background-color: #FFF5B7;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+form {
+	background-color: #FFFFFF;
+	padding: 20px;
+	border: 2px solid #AAAAAA;
+	width: 50%;
+	margin: 0 auto;
+}
+
+input[type="text"], textarea {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #AAAAAA;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+input[type="submit"], input[type="reset"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+	background-color: #3e8e41;
+}
+
+input[type="reset"] {
+	background-color: #f44336;
+}
+
+h2 {
+	text-align: center;
+}
+
+button[type="submit"] {
+	padding: 10px 20px;
+	background-color: rgb(27, 147, 180);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+	background-color: rgb(174, 164, 132);
+}
+</style>
+</head>
+
+<body>
+	<h2>新增文章</h2>
+	<!--action這邊要抓到什麼檔案 , 檔名要跟需要的servlet一樣-->
+
+	<form method="post" action="/TakeAPhotoTakeAChance/InsertArticle">
+		<!-- 會員編號: <input type="text" name="memberID" />
+		<p> 會員姓名: <input type="text" name="memberName" />
+		<p>-->
+
+		文章標題: <input type="text" name="articleTitle" />
+		<p>
+			文章內容:
+			<textarea rows="10" cols="30" name="articleContent"></textarea>
+		<p>
+			Hashtag: <input type="text" name="hashtag" />
+		<p>
+		<div style="text-align: center;">
+			<input type="submit" value="確定" /> <input type="reset" value="重來" />
+		</div>
+	</form>
+
+	<div style="text-align: center;">
+		<form method="post" action="MainPage.html">
+			<button type="submit">回首頁</button>
+		</form>
+	</div>
+
+</body>
+
+</html>
