@@ -1,19 +1,38 @@
 package com.studio.bean;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
-public class StudioBean implements java.io.Serializable {
+@Entity @Table(name = "StudioInfo")
+	public class StudioBean {
 	
-	private static final long serialVersionUID = 1L;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studioInfo", cascade = CascadeType.ALL)
+//	@Column(name = "studioID")
 	private Integer studioID;
+	@Column(name = "memberID")
 	private Integer memberID;
+	@Column(name = "studioName")
 	private String studioName;
+	@Column(name = "studioAddres")
 	private String studioAddress;
+	@Column(name = "studioLong")
 	private float studioLong;
+	@Column(name = "studioLat")
 	private float studioLat;
+	@Column(name = "studioPhoneE")
 	private String studioPhone;
+	@Column(name = "studioEmail")
 	private String studioEmail;
+	@Column(name = "studioTime")
 	private String studioTime;
+	@Column(name = "studioLink")
 	private String studioLink;
+	@Column(name = "studioIntro")
 	private String studioIntro;
+	@Column(name = "studioPicID")
 	private Integer studioPicID;
 	
 	public Integer getStudioID() {
