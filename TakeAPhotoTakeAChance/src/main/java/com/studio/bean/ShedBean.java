@@ -1,7 +1,38 @@
 package com.studio.bean;
 
-public class ShedBean implements java.io.Serializable {
-	private static final long serialVersionUID = 1L;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity @Table(name = "StudioDetail")
+public class ShedBean  {
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "studioID")
+//	@Column(name = "studioID")
+	private Integer studioID;
+	@Column(name = "shedID")
+	private Integer shedID;
+	@Column(name = "shedName")
+	private String shedName;
+	@Column(name = "shedSize")
+	private Integer shedSize;
+	@Column(name = "shedFee")
+	private Integer shedFee;
+	@Column(name = "shedFeature")
+	private String shedFeature;
+	@Column(name = "shedEquip")
+	private String shedEquip;
+	@Column(name = "shedType")
+	private String shedType;
+	@Column(name = "shedIntro")
+	private String shedIntro;
+	@Column(name = "studioPicID")
+	private Integer studioPicID;
+	
 	public Integer getStudioID() {
 		return studioID;
 	}
@@ -62,14 +93,5 @@ public class ShedBean implements java.io.Serializable {
 	public void setStudioPicID(Integer studioPicID) {
 		this.studioPicID = studioPicID;
 	}
-	private Integer studioID;
-	private Integer shedID;
-	private String shedName;
-	private Integer shedSize;
-	private Integer shedFee;
-	private String shedFeature;
-	private String shedEquip;
-	private String shedType;
-	private String shedIntro;
-	private Integer studioPicID;
+
 }
