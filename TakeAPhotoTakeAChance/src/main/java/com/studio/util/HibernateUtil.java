@@ -1,4 +1,4 @@
-package com.studio.app;
+package com.studio.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
