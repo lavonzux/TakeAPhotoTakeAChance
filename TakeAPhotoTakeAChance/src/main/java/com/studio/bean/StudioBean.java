@@ -3,26 +3,29 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity @Table(name = "StudioInfo")
 	public class StudioBean {
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "studioInfo", cascade = CascadeType.ALL)
-//	@Column(name = "studioID")
-	private Integer studioID;
+    @Id
+    @Column(name = "studioID")
+    private Integer studioID;
 	@Column(name = "memberID")
 	private Integer memberID;
 	@Column(name = "studioName")
 	private String studioName;
-	@Column(name = "studioAddres")
+	@Column(name = "studioAddress")
 	private String studioAddress;
 	@Column(name = "studioLong")
 	private float studioLong;
 	@Column(name = "studioLat")
 	private float studioLat;
-	@Column(name = "studioPhoneE")
+	@Column(name = "studioPhone")
 	private String studioPhone;
 	@Column(name = "studioEmail")
 	private String studioEmail;

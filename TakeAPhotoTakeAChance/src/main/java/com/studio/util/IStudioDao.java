@@ -9,7 +9,7 @@ import com.studio.bean.StudioBean;
 public interface IStudioDao {
 
 	public StudioBean insertStudio(StudioBean sBean);
-	public StudioBean getStudio(String studioName);
+	public StudioBean getStudio(int studioID);
 	public List<StudioBean> getAllStudios();
 	public List<StudioBean>updateStudio(int studioID, String studioName, String studioAddress, float studioLong, float studioLat,
 			String studioPhone, String studioEmail, String studioTime, String studioLink, String studioIntro,

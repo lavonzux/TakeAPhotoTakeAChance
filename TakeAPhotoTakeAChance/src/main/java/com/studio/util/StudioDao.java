@@ -30,8 +30,8 @@ public class StudioDao implements IStudioDao {
 	}
 
 	@Override
-	public StudioBean getStudio(String studioName) {
-		return session.get(StudioBean.class, studioName) ;
+	public StudioBean getStudio(int studioID) {
+		return session.get(StudioBean.class, studioID) ;
 	}
 
 	@Override

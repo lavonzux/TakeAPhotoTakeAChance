@@ -173,7 +173,7 @@
                                 場地管理
                             </div>
                             <div class="card-body">
-                                <form method="post" action="/TakeAPhotoTakeAChance/InsertStudio">
+                                <form method="post" action="/TAPTAC/InsertStudio">
                                 <table >
                                     <thead>
                                         <tr>

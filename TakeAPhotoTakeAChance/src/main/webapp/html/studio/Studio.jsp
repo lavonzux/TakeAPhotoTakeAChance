@@ -189,9 +189,9 @@
 								        <td>${studio.studioID}</td>
 								        <td>${studio.studioName}</td>
 								        <td>${studio.memberID}</td>
-								        <td><button id="editStudio"><a href="${pageContext.request.contextPath}/GetUpdateStudio?studioID=${studio.studioID}">編輯</a></button></td>
-								        <td><button id="enter"><a href="${pageContext.request.contextPath}/GetAllShed?studioID=${studio.studioID}">進入</a></button></td>
-								        <td><button id="del" class="delete-btn" data-studio-id="${studio.studioID}">刪除</button></td>
+								       <td><button id="editStudio"><a href="${pageContext.request.contextPath}/GetStudio?studioID=${studio.studioID}">編輯</a></button></td>
+										<td><button id="enter"><a href="${pageContext.request.contextPath}/GetAllShed?studioID=${studio.studioID}">進入</a></button></td>
+										<td><button id="del" class="delete-btn" data-studio-id="${studio.studioID}">刪除</button></td>
 								      </tr>
 								    </c:forEach>
 								  </tbody>

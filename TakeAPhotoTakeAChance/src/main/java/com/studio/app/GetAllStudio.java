@@ -15,8 +15,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import com.studio.util.HibernateUtil;
 import com.studio.bean.StudioBean;
+import com.studio.util.HibernateUtil;
 
 
 @WebServlet("/GetAllStudio")
@@ -31,12 +31,11 @@ public class GetAllStudio extends HttpServlet {
 		try {
 		    SessionFactory factory = HibernateUtil.getSessionFactory();
 		    Session session = factory.getCurrentSession();
-		    Transaction transaction = session.beginTransaction();
 
 			Query<StudioBean> query = session.createQuery("from StudioBean", StudioBean.class);
 		    List<StudioBean> studios = query.getResultList();
 
-		    transaction.commit();
+
 		    request.setAttribute("studios", studios);
 		    request.getRequestDispatcher("/html/studio/Studio.jsp").forward(request, response);
 

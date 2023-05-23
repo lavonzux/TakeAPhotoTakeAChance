@@ -6,16 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.studio.bean.StudioBean;
+import com.studio.util.HibernateUtil;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-
-
-import com.studio.util.HibernateUtil;
-import com.studio.bean.StudioBean;
 
 
 @WebServlet("/InsertStudio")
@@ -31,7 +29,7 @@ public class InsertStudio extends HttpServlet {
 		try {
 		    SessionFactory factory = HibernateUtil.getSessionFactory();
 		    Session session = factory.getCurrentSession();
-		    Transaction transaction = session.beginTransaction();
+		    System.out.println("新增資料用");
 
 		    StudioBean studio = new StudioBean();
 		    studio.setStudioID(Integer.parseInt(request.getParameter("studioID")));
@@ -49,7 +47,6 @@ public class InsertStudio extends HttpServlet {
 
 		    session.save(studio);
 
-		    transaction.commit();
 		    request.getRequestDispatcher("/GetAllStudio").forward(request, response);
 
 		} catch (HibernateException e) {

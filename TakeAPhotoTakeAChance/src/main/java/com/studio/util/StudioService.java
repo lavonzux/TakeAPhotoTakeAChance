@@ -22,8 +22,8 @@ public class StudioService implements IStudioService {
 	}
 
 	@Override
-	public StudioBean getStudio(String studioName) {
-		return dao.getStudio(studioName);
+	public StudioBean getStudio(int studioID) {
+		return dao.getStudio(studioID);
 	}
 
 	@Override

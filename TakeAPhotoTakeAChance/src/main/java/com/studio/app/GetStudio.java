@@ -15,8 +15,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import com.studio.util.HibernateUtil;
 import com.studio.bean.StudioBean;
+import com.studio.util.HibernateUtil;
 
 
 @WebServlet("/GetStudio")
@@ -30,24 +30,24 @@ public class GetStudio extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		try {
-		    SessionFactory factory = HibernateUtil.getSessionFactory();
-		    Session session = factory.getCurrentSession();
-		    Transaction transaction = session.beginTransaction();
+        try {
+            SessionFactory factory = HibernateUtil.getSessionFactory();
+            Session session = factory.getCurrentSession();
 
-		    String studioName = request.getParameter("studioName");
-		    String queryString = "FROM StudioBean WHERE studioName LIKE :studioName";
-		    Query<StudioBean> query = session.createQuery(queryString, StudioBean.class);
-		    query.setParameter("studioName", "%" + studioName + "%");
-		    StudioBean studio = query.uniqueResult();
+            int studioID = Integer.parseInt(request.getParameter("studioID"));
+            System.out.println(studioID);
+            String queryString = "FROM StudioBean WHERE studioID = :studioID";
+            Query<StudioBean> query = session.createQuery(queryString, StudioBean.class);
+            query.setParameter("studioID", studioID);
+            StudioBean studio = query.uniqueResult();
 
-		    transaction.commit();
-		    request.setAttribute("studio", studio);
-		    request.getRequestDispatcher("/studio/GetStudio.jsp").forward(request, response);
+            request.setAttribute("studio", studio);
+            request.getRequestDispatcher("/html/studio/UpdateStudio.jsp").forward(request, response);
 
-		} catch (HibernateException e) {
-		    e.printStackTrace();
-		}
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+   
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

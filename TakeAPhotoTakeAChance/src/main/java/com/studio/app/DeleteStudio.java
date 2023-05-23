@@ -6,16 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.studio.util.HibernateUtil;
+import com.studio.util.StudioDao;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-
-
-import com.studio.util.HibernateUtil;
-import com.studio.util.StudioDao;
 
 @WebServlet("/DeleteStudio")
 public class DeleteStudio extends HttpServlet {
@@ -31,18 +29,13 @@ public class DeleteStudio extends HttpServlet {
         try {
             SessionFactory factory = HibernateUtil.getSessionFactory();
             Session session = factory.getCurrentSession();
-            Transaction transaction = session.beginTransaction();
 
             StudioDao dao = new StudioDao(session);
-
+            System.out.println(studioID);
             boolean deleteResult = dao.deleteStudio(studioID);
 
-            if (deleteResult) {
-                transaction.commit();
-                request.getRequestDispatcher("../html/studio/Studio.jsp").forward(request, response);
-            } else {
-                transaction.rollback();
-            }
+                request.getRequestDispatcher("/html/studio/Studio.jsp").forward(request, response);
+
 
         } catch (HibernateException e) {
             e.printStackTrace();
